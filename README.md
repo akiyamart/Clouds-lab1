@@ -15,26 +15,34 @@
 ## Начало работы
 
 1. **Аренда облачного сервера и подключение:**
+
    - Мы арендовали облачный сервер и установили соединение по SSH-ключу.
    - Подключились через SSH-Remote в VS Code.
 
 2. **Обновление пакетов:**
+
    ```bash
    sudo apt update
    ```
 
 3. **Установили git и nginx**
+
     ```bash
     sudo apt install git nginx 
     ```
+
 4. **Hello, Nginx!**
+
     ![alt text](img/image.png)
 
     Как мы видим, nginx работает, а это значит мы на правильном пути
 
 4. **Начальная настройка nginx`a**
+
     - Мы скопировали нужные файлы для работы лабы и переместили их по путям /var/www/Anton/ и /var/www/Maxim/ и сразу прописали алиасы 
+
     Вот что у нас получилось 
+
     ```nginx
     server {
         listen 80;
@@ -57,6 +65,7 @@
         }
     }
     ```
+    
     ![alt text](img/Maxim.png) ![alt text](img/Anton.png)
 
 ## Домен 
@@ -96,28 +105,40 @@
 
 1. **Будем мы работать через certbot, поэтому проходимся по документации на их сайте:** 
 
-    - ```bash sudo apt-get remove certbot```
+    ```bash
+    sudo apt-get remove certbot
+    ```
 
         ![alt text](img/image-0.png)
 
     - Для команды на следующем шаге, нужно установить: 
-        ```bash sudo apt-get install snapd```
+        ```bash
+        sudo apt-get install snapd
+        ```
 
-    - ```bash sudo snap install --classic certbot```
+    ```bash
+    sudo snap install --classic certbot
+    ```
 
         ![alt text](img/image-1.png)
 
     - Переходим в корень системы и прописываем: 
-        ```bash sudo ln -s /snap/bin/certbot /usr/bin/certbot```
+        ```bash
+        sudo ln -s /snap/bin/certbot /usr/bin/certbot
+        ```
     
-    - ```bash sudo certbot --nginx```
+    ```bash
+    sudo certbot --nginx
+    ```
     
         ![alt text](img/image-2.png)
 
     - И вот мы получили наш сертификат, а certbot автоматически настроил нам nginx-файл
+
         ![alt text](img/image-3.png)
     
     - Код конфигурации:
+
         ```nginx 
         server {
             listen 80;
@@ -153,6 +174,7 @@
         }
 
         ```
+
 ## Подключение ещё одного домена (по сути будет 4 домена) 
 
 1. **Нужно проделать те же самые операции, как и с подключением первого домена, и дождаться делегации**
@@ -161,13 +183,19 @@
 
 2. **Наш конфигурационный файл стал содержать следующие домены:**
 
-    ```bash server_name bocharnikoff.ru www.bocharnikoff.ru bocharnikoff.online www.bocharnikoff.online```
+    ```bash
+    server_name bocharnikoff.ru www.bocharnikoff.ru bocharnikoff.online www.bocharnikoff.online
+    ```
 
 3. **Пропишем эту команду и рестартнем nginx**
 
-    ```bash sudo certbot --nginx -d bocharnikoff.online -d www.bocharnikoff.online -d bocharnikoff.ru -d www.bocharnikoff.ru```
+    ```bash
+    sudo certbot --nginx -d bocharnikoff.online -d www.bocharnikoff.online -d bocharnikoff.ru -d www.bocharnikoff.ru
+    ```
 
-    ```bash sudo systemctl restart nginx```
+    ```bash
+    sudo systemctl restart nginx
+    ```
 
     ![alt text](img/image-5.png)
 
@@ -227,6 +255,6 @@
 
     }
     ```
-    
+
 ## А это и конец уже 
 
