@@ -27,5 +27,44 @@
     ```bash
     sudo apt install git nginx 
     ```
+4. **Hello, Nginx!**
+    ![alt text](img/image.png)
 
-4. **Далее скопировали нужные файлы для работы лабы**
+    Как мы видим, nginx работает, а это значит мы на правильном пути
+
+4. **Начальная настройка nginx`a**
+    - Мы скопировали нужные файлы для работы лабы и переместили их по путям /var/www/Anton/ и /var/www/Maxim/ и сразу прописали алиасы 
+    Вот что у нас получилось 
+    ```nginx
+        server {
+        listen 80;
+        server_name 87.228.26.155;
+
+        location /anton/ {
+            alias /var/www/Anton/;
+            try_files $uri /index.html =404;
+        }
+
+        location /maxim/ {
+            alias /var/www/Maxim/;
+            try_files $uri /index.html =404;
+        }
+
+        # Обработка ошибок
+        error_page 404 /404.html;
+        location = /404.html {
+            root /var/www/html;
+            internal;
+        }
+    }
+    ```
+    ![alt text](img/Maxim.png) ![alt text](img/Anton.png)
+
+## Домен 
+
+1. **Подключение домена** 
+
+    - За кадром мы успели купить домен bocharnikoff.ru (можете не тыкать на него, с 99% вероятностью не будет работать)
+    - Осталось его подключить (и подождать делегирования домена)
+    
+2. 
