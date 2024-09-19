@@ -65,7 +65,7 @@
         }
     }
     ```
-    
+
     ![alt text](img/Maxim.png) ![alt text](img/Anton.png)
 
 ## Домен 
@@ -109,9 +109,10 @@
     sudo apt-get remove certbot
     ```
 
-        ![alt text](img/image-0.png)
+    ![alt text](img/image-0.png)
 
     - Для команды на следующем шаге, нужно установить: 
+    
         ```bash
         sudo apt-get install snapd
         ```
@@ -120,9 +121,10 @@
     sudo snap install --classic certbot
     ```
 
-        ![alt text](img/image-1.png)
+    ![alt text](img/image-1.png)
 
     - Переходим в корень системы и прописываем: 
+
         ```bash
         sudo ln -s /snap/bin/certbot /usr/bin/certbot
         ```
@@ -131,11 +133,11 @@
     sudo certbot --nginx
     ```
     
-        ![alt text](img/image-2.png)
+    ![alt text](img/image-2.png)
 
     - И вот мы получили наш сертификат, а certbot автоматически настроил нам nginx-файл
 
-        ![alt text](img/image-3.png)
+    ![alt text](img/image-3.png)
     
     - Код конфигурации:
 
