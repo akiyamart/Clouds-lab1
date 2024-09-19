@@ -112,10 +112,10 @@
     ![alt text](img/image-0.png)
 
     - Для команды на следующем шаге, нужно установить: 
-    
-        ```bash
-        sudo apt-get install snapd
-        ```
+
+    ```bash
+    sudo apt-get install snapd
+    ```
 
     ```bash
     sudo snap install --classic certbot
@@ -125,9 +125,9 @@
 
     - Переходим в корень системы и прописываем: 
 
-        ```bash
-        sudo ln -s /snap/bin/certbot /usr/bin/certbot
-        ```
+    ```bash
+    sudo ln -s /snap/bin/certbot /usr/bin/certbot
+    ```
     
     ```bash
     sudo certbot --nginx
@@ -259,4 +259,6 @@
     ```
 
 ## А это и конец уже 
+
+### Писал весь этот ужас - akiyamart
 
